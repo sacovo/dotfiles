@@ -1,0 +1,86 @@
+!-------------------------------------------------------------------------------
+! URxvt settings
+! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
+! More info at:
+! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+!-------------------------------------------------------------------------------
+
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            200000
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+! Fonts
+URxvt.allow_bold:           true
+URxvt*font:            xft:Source Code Pro:size=11
+
+! Fix font space
+URxvt*letterSpace: 0
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+! special
+*.foreground:   #f2f2f2
+*.background:   #0b253f
+*.cursorColor:  #f2f2f2
+
+! black
+*.color0:       #58594e
+*.color8:       #4c7da0
+
+! red
+*.color1:       #8e5b64
+*.color9:       #f52969
+
+! green
+*.color2:       #62aa7c
+*.color10:      #00dc3f
+
+! yellow
+*.color3:       #c0c941
+*.color11:      #fcff00
+
+! blue
+*.color4:       #0052a8
+*.color12:      #22d0ff
+
+! magenta
+*.color5:       #841ed0
+*.color13:      #da7ace
+
+
+! cyan
+*.color6:       #68e7ec
+*.color14:      #00d0b6
+
+! white
+*.color7:       #ffffff
+*.color15:      #ebbaba
+
