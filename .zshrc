@@ -44,13 +44,15 @@ fi
 
 ## Prompt theme extension ##
 
-# Virtualenv support
 
-#function virtual_env_prompt () {
-#    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
-#}
-#grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
-#zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
+# Virtualenv support
+#
+
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}
+grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
 
 ## ZLE tweaks ##
 
@@ -354,6 +356,7 @@ alias pacown='pacman -Qo'
 
 
 ## END OF FILE #################################################################
+alias nv='nvim'
 #
 export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/"
 
@@ -374,5 +377,10 @@ zmodload zsh/complist
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-
 export BW_SESSION="hYWQVLsfIMWqH3msZhWo5eU/FanMPPOXHDqnSP+SSms9strI8DaHgIn2OjTdYUGk9MKsmtJaERBy2ELGdzDwYw=="
+
+autoload -Uz promptinit
+promptinit
+
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
+
