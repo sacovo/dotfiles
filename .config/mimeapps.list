@@ -45,3 +45,4 @@ image/png=feh.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/plain=vim.desktop;
 application/x-mswinurl=org.gnome.gedit.desktop;
+text/x-log=vim.desktop;

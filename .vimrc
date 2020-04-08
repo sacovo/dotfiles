@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -35,6 +35,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 Plugin 'airblade/vim-gitgutter'
 
 
@@ -84,6 +85,10 @@ set t_Co=256
 
 nmap <F8> :TagbarToggle<CR>
 
+set hidden
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+
 set mouse=a
 set tabstop=2 shiftwidth=2 expandtab
 
@@ -106,3 +111,25 @@ let g:ycm_rust_src_path = '/home/sandro/.local/lib/rust/src'
 let g:rustfmt_autosave = 1
 
 
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> <leader>gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+    autocmd FileType rust nmap <buffer> gd <Plug>(rust-doc)
+augroup END
+
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'leaderf': 1,
+      \ 'mail': 1,
+      \}
