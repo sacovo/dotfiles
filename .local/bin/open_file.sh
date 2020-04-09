@@ -6,7 +6,7 @@ cd ~ || exit
 
 if [ "$1" = "ranger" ]
 then
-  /usr/bin/urxvt -geometry 120x30 -bg black -fg white -T file_select -e ranger --choosefile="$tmp"
+  /usr/bin/termite -r task_dialog -e "ranger --choosefile=$tmp"
 else
   /usr/bin/urxvt -geometry 80x20 -bg black -fg green -T file_select -e /home/sandro/.local/bin/select_file.sh "$tmp"
 fi

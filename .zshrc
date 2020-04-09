@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #
 #
 # Filename:      /etc/skel/.zshrc
@@ -42,17 +49,6 @@ fi
 ## Now, we'll give a few examples of what you might want to use in your
 ## .zshrc.local file (just copy'n'paste and uncomment it there):
 
-## Prompt theme extension ##
-
-
-# Virtualenv support
-#
-
-function virtual_env_prompt () {
-    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
-}
-grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
-zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
 
 ## ZLE tweaks ##
 
@@ -357,12 +353,10 @@ alias pacown='pacman -Qo'
 
 ## END OF FILE #################################################################
 alias nv='nvim'
+alias vim='nvim'
 #
 export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/"
 
-
-powerline-daemon -q
-. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export GRAILS_HOME=$HOME/.local/share/grails
 
@@ -379,8 +373,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 export BW_SESSION="hYWQVLsfIMWqH3msZhWo5eU/FanMPPOXHDqnSP+SSms9strI8DaHgIn2OjTdYUGk9MKsmtJaERBy2ELGdzDwYw=="
 
-autoload -Uz promptinit
-promptinit
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

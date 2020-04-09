@@ -1,8 +1,14 @@
 let g:python3_host_prog = '/usr/bin/python'
+set mouse=a
+
+set clipboard=unnamedplus
+let mapleader=","
 
 call plug#begin('~/.config/nvim/plugged/')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rust-lang/rust.vim'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neomake/neomake'
@@ -15,8 +21,33 @@ Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'tfnico/vim-gradle'
+Plug 'tpope/vim-fugitive'
+Plug 'kassio/neoterm'
+Plug 'vimlab/split-term.vim'
+Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
+Plug 'yuqio/vim-darkspace'
 
 call plug#end()
+
+filetype plugin indent on
+set tabstop=2 shiftwidth=2 expandtab
+
+" Darkspace
+let g:airline_theme='darkspace'
+
+set background=dark
+colorscheme darkspace
+set termguicolors
+
+set foldmethod=indent
+set foldlevel=99
+set nu
+set cursorline
+set showmatch
+
+nnoremap <space> za
+let g:SimpylFold_docstring_preview=1
 
 " neovim-config:
 call neomake#configure#automake('nrwi', 500)
@@ -42,6 +73,8 @@ set updatetime=100
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
@@ -79,6 +112,13 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -87,3 +127,11 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " emmet
 let g:user_emmet_leader_key='<C-C>'
+
+
+let maplocalleader = "\\"
+let g:vimtex_view_method = 'zathura'
+
+
+" Rust
+let g:rustfmt_autosave = 1
