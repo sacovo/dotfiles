@@ -49,6 +49,6 @@ color20 = #839496
 color21 = #eee8d5
 
 [options]
-font= Source Code Pro 11
+font = Source Code Pro 11
 mouse_autohide = true
 hyperlinks = true
