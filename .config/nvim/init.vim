@@ -26,19 +26,24 @@ Plug 'kassio/neoterm'
 Plug 'vimlab/split-term.vim'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
-Plug 'yuqio/vim-darkspace'
+Plug 'Lenovsky/nuake'
+Plug 'KeitaNakamura/neodark.vim'
 
 call plug#end()
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 
-" Darkspace
-let g:airline_theme='darkspace'
-
 set background=dark
-colorscheme darkspace
 set termguicolors
+syntax on
+
+colorscheme neodark
+hi NeomakeVirtualTextError guifg=Red
+hi NeomakeVirtualTextWarning guifg=Yellow
+hi NeomakeErrorSign guifg=Red
+hi NeomakeWarningSign guifg=Yellow
+hi Normal guibg=Black
 
 set foldmethod=indent
 set foldlevel=99
@@ -135,3 +140,9 @@ let g:vimtex_view_method = 'zathura'
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" Nuake
+nnoremap <F4> :Nuake<CR>
+inoremap <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <F4> <C-\><C-n>:Nuake<CR>
+
