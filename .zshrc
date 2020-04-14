@@ -371,7 +371,7 @@ zmodload zsh/complist
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-export BW_SESSION="hYWQVLsfIMWqH3msZhWo5eU/FanMPPOXHDqnSP+SSms9strI8DaHgIn2OjTdYUGk9MKsmtJaERBy2ELGdzDwYw=="
+source ~/.bw_session
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
