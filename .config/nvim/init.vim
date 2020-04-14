@@ -39,17 +39,19 @@ set termguicolors
 syntax on
 
 colorscheme neodark
-hi NeomakeVirtualTextError guifg=Red
-hi NeomakeVirtualTextWarning guifg=Yellow
-hi NeomakeErrorSign guifg=Red
-hi NeomakeWarningSign guifg=Yellow
-hi Normal guibg=Black
 
 set foldmethod=indent
 set foldlevel=99
 set nu
 set cursorline
 set showmatch
+
+hi NeomakeVirtualTextError guifg=Red
+hi NeomakeVirtualTextWarning guifg=Yellow
+hi NeomakeErrorSign guifg=Red
+hi NeomakeWarningSign guifg=Yellow
+hi Normal guibg=Black
+
 
 nnoremap <space> za
 let g:SimpylFold_docstring_preview=1
@@ -65,12 +67,12 @@ map <C-n> :NERDTreeToggle<CR>
 
 " racer
 augroup Racer
-    autocmd!
-    autocmd FileType rust nmap <buffer> <leader>gd         <Plug>(rust-def)
-    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
-    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
-    autocmd FileType rust nmap <buffer> gd <Plug>(rust-doc)
+  autocmd!
+  autocmd FileType rust nmap <buffer> <leader>gd         <Plug>(rust-def)
+  autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+  autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+  autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+  autocmd FileType rust nmap <buffer> gd <Plug>(rust-doc)
 augroup END
 
 " gitgutter
@@ -102,7 +104,6 @@ set cmdheight=2
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -124,19 +125,43 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 " emmet
 let g:user_emmet_leader_key='<C-C>'
 
-
 let maplocalleader = "\\"
 let g:vimtex_view_method = 'zathura'
-
 
 " Rust
 let g:rustfmt_autosave = 1
