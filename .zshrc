@@ -375,5 +375,25 @@ export BW_SESSION="hYWQVLsfIMWqH3msZhWo5eU/FanMPPOXHDqnSP+SSms9strI8DaHgIn2OjTdY
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+source /usr/share/zsh/share/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle pip
+antigen bundle "MichaelAquilina/zsh-auto-notify"
+
+antigen apply
+
+export AUTO_NOTIFY_THRESHOLD=10
+export AUTO_NOTIFY_WHITELIST=("pacman", "vim", "man", "docker", "docker-compose")
+
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
