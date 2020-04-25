@@ -387,7 +387,7 @@ antigen bundle "MichaelAquilina/zsh-auto-notify"
 antigen apply
 
 export AUTO_NOTIFY_THRESHOLD=10
-export AUTO_NOTIFY_WHITELIST=("pacman", "vim", "man", "docker", "docker-compose")
+#export AUTO_NOTIFY_WHITELIST=("pacman", "vim", "man", "docker", "docker-compose")
 
 autoload -Uz compinit
 compinit
