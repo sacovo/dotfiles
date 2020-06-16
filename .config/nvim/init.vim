@@ -27,7 +27,9 @@ Plug 'vimlab/split-term.vim'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 Plug 'Lenovsky/nuake'
-Plug 'KeitaNakamura/neodark.vim'
+Plug 'herrbischoff/cobalt2.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -38,7 +40,6 @@ set background=dark
 set termguicolors
 syntax on
 
-colorscheme neodark
 
 set foldmethod=indent
 set foldlevel=99
@@ -171,3 +172,6 @@ nnoremap <F4> :Nuake<CR>
 inoremap <F4> <C-\><C-n>:Nuake<CR>
 tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
+
+colorscheme cobalt2

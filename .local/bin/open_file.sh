@@ -1,19 +1,15 @@
 #!/bin/sh
-$PATH > /home/sandro/test
-tmp=$(/usr/bin/mktemp)
 
 cd ~ || exit
 
-if [ "$1" = "ranger" ]
-then
-  /usr/bin/termite -r task_dialog -e "ranger --choosefile=$tmp"
-else
-  /usr/bin/urxvt -geometry 80x20 -bg black -fg green -T file_select -e /home/sandro/.local/bin/select_file.sh "$tmp"
-fi
+tmp=$(/usr/bin/mktemp)
+/usr/bin/termite -r task_dialog -e "ranger --choosefile=$tmp"
+
 file=$(/usr/bin/cat "$tmp")
-echo "$file"
 
 if [ -e "$file" ]
 then
   exec /usr/bin/rifle "$file"
 fi
+
+rm "$tmp"

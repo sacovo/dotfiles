@@ -355,7 +355,7 @@ alias pacown='pacman -Qo'
 alias nv='nvim'
 alias vim='nvim'
 #
-export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/"
+export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/":"$HOME/go/bin/"
 
 
 export GRAILS_HOME=$HOME/.local/share/grails
