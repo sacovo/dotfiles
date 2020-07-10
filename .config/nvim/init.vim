@@ -30,7 +30,7 @@ Plug 'Lenovsky/nuake'
 Plug 'herrbischoff/cobalt2.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'victorze/foo'
 call plug#end()
 
 filetype plugin indent on
@@ -174,4 +174,7 @@ tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
 
-colorscheme cobalt2
+
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif

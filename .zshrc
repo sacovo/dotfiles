@@ -397,3 +397,24 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function reload_nvim {
+    for SERVER in $(nvr --serverlist); do
+        nvr -cc "source ~/.config/nvim/init.vim" --servername $SERVER &
+    done
+}
+
+LIGHT_COLOR='base16-cupertino.yml'
+DARK_COLOR='cobalt2.yml'
+
+alias day="alacritty-colorscheme -a $LIGHT_COLOR -V && reload_nvim"
+alias night="alacritty-colorscheme  -a $DARK_COLOR -V && reload_nvim"
+
+alias dog='pygmentize -g'
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi

@@ -215,3 +215,13 @@ bindsym $mod+shift+v exec termite --role task_dialog -e "nvim $(mktemp).md"
 
 for_window [title="^file_select$"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+set $light_color github-old.yml
+set $dark_color cobalt2.yml
+
+# Toggle between light and dark colorscheme
+bindsym $mod+Shift+n exec --no-startup-id "/home/sandro/.local/bin/alacritty-colorscheme -t $light_color $dark_color -V; /home/sandro/.local/bin/reload_vim"
+
+# Get notification with current colorscheme
+bindsym $mod+Shift+b exec notify-send "Alacritty Colorscheme" `/home/sandro/.local/bin/alacritty-colorscheme -s`
