@@ -1,0 +1,14 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.formatOnType": true,
+  "python.linting.enabled": false,
+  "python.jediEnabled": false,
+  "python.jediPath": "/usr/lib/python3.8/site-packages",
+  "python.linting.pylintEnabled": true,
+  "python.linting.banditEnabled": true,
+  "python.linting.banditPath": "/usr/bin/bandit",
+  "python.venvPath": "~/.virtualenvs",
+  "python.formatting.blackPath":"/home/sandro/.local/bin/black",
+  "python.formatting.provider": "black",
+  "python.sortImports.path": "/usr/bin/isort"
+}

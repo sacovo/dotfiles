@@ -354,8 +354,9 @@ alias pacown='pacman -Qo'
 ## END OF FILE #################################################################
 alias nv='nvim'
 alias vim='nvim'
+alias cat='bat'
 #
-export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/":"$HOME/go/bin/"
+export PATH="$PATH":"$HOME/.pub-cache/bin":"$HOME/.local/bin":"$HOME/.local/share/grails/bin/":"$HOME/go/bin/":"$HOME/.gem/ruby/2.7.0/bin/"
 
 
 export GRAILS_HOME=$HOME/.local/share/grails
@@ -391,6 +392,7 @@ export AUTO_NOTIFY_THRESHOLD=10
 
 autoload -Uz compinit
 compinit
+kitty + complete setup zsh | source /dev/stdin
 zstyle ':completion:*' menu select
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/doc/pkgfile/command-not-found.zsh
@@ -411,6 +413,7 @@ alias day="alacritty-colorscheme -a $LIGHT_COLOR -V && reload_nvim"
 alias night="alacritty-colorscheme  -a $DARK_COLOR -V && reload_nvim"
 
 alias dog='pygmentize -g'
+alias ls='exa'
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
@@ -418,3 +421,10 @@ fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
+
+PATH="/home/sandro/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/sandro/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/sandro/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/sandro/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/sandro/perl5"; export PERL_MM_OPT;
+alias la='exa -a'

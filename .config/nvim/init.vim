@@ -1,3 +1,4 @@
+let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = '/usr/bin/python'
 set mouse=a
 
@@ -9,7 +10,6 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neomake/neomake'
 Plug 'preservim/nerdtree'
@@ -17,11 +17,14 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'kassio/neoterm'
 Plug 'vimlab/split-term.vim'
 Plug 'lervag/vimtex'
@@ -31,6 +34,9 @@ Plug 'herrbischoff/cobalt2.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'victorze/foo'
+" Plug 'junegunn/fzf.vim'
+Plug 'floobits/floobits-neovim'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 filetype plugin indent on
@@ -178,3 +184,6 @@ autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
+
+" Latex
+let g:tex_flavor = 'latex'

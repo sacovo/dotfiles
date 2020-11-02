@@ -3,7 +3,7 @@
 cd ~ || exit
 
 tmp=$(/usr/bin/mktemp)
-/usr/bin/alacritty -t file_select -e ranger --choosefile=$tmp
+/usr/bin/kitty --class=task_dialog --name=file_select ranger --choosefile="$tmp"
 
 file=$(/usr/bin/cat "$tmp")
 
