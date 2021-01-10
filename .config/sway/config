@@ -8,8 +8,10 @@ exec udiskie --tray
 #exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec mako
 exec gammastep
-exec wl-paste -t text --watch clipman store
+exec wl-paste -t text --watch clipman store --max-items=1000
 exec --no-startup-id blueman-applet
+
+exec swayidle -w timeout 600 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -42,6 +44,8 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Shift+s exec grim /home/sandro/Bilder/Screenshot/$(date -Iseconds).png
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -55,8 +59,7 @@ bindsym $mod+l focus right
 bindsym $mod+k focus up
 bindsym $mod+semicolon focus down
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
+# alternatively, you can use the cursor keys: bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
@@ -175,7 +178,7 @@ bindsym $mod+r mode "resize"
 default_border none
 
 input * xkb_layout "ch"
-input * xkb_options "caps:escape" 
+input * xkb_options "caps:swapescape" 
 
 input "type:touchpad" {
   tap enabled
@@ -235,12 +238,12 @@ set $light_color github-old.yml
 set $dark_color cobalt2.yml
 
 
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show

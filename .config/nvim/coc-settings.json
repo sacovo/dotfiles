@@ -1,14 +1,30 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["python"],
-  "coc.preferences.formatOnType": true,
-  "python.linting.enabled": false,
-  "python.jediEnabled": false,
-  "python.jediPath": "/usr/lib/python3.8/site-packages",
+  "python.analysis.typeCheckingMode": "off",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-length", "99"],
   "python.linting.pylintEnabled": true,
   "python.linting.banditEnabled": true,
-  "python.linting.banditPath": "/usr/bin/bandit",
+  "python.linting.prospectorEnabled": true,
+  "python.linting.prospectorPath": "/home/sandro/.virtualenvs/neovim/bin/prospector",
+  "python.linting.prospectorArgs": ["--no-style-warnings"],
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstylePath": "/home/sandro/.virtualenvs/neovim/bin/pydocstyle",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "/home/sandro/.virtualenvs/neovim/bin/dmypy",
+  "python.linting.mypyArgs": [
+    "run",
+    "--",
+    "--ignore-missing-imports",
+    "--show-column-numbers"
+  ],
+  "python.linting.banditPath": "/home/sandro/.virtualenvs/neovim/bin/bandit",
+  "python.linting.pylintPath": "/home/sandro/.virtualenvs/neovim/bin/pylint",
+  "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
   "python.venvPath": "~/.virtualenvs",
-  "python.formatting.blackPath":"/home/sandro/.local/bin/black",
-  "python.formatting.provider": "black",
-  "python.sortImports.path": "/usr/bin/isort"
+  "python.formatting.blackPath": "/home/sandro/.virtualenvs/neovim/bin/black",
+  "python.formatting.yapfPath": "/home/sandro/.virtualenvs/neovim/bin/yapf",
+  "python.formatting.blackArgs": ["--line-length", "99"],
+  "python.formatting.provider": "yapf"
 }

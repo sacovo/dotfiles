@@ -18,7 +18,7 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt*font:            xft:Source Code Pro:size=11
+URxvt*font:            xft:KatwijkMono Nerd Font:size=10
 
 ! Fix font space
 URxvt*letterSpace: 0
@@ -46,41 +46,46 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-! special
-*.foreground:   #f2f2f2
-*.background:   #0b253f
-*.cursorColor:  #f2f2f2
-
-! black
-*.color0:       #58594e
-*.color8:       #4c7da0
-
-! red
-*.color1:       #8e5b64
-*.color9:       #f52969
-
-! green
-*.color2:       #62aa7c
-*.color10:      #00dc3f
-
-! yellow
-*.color3:       #c0c941
-*.color11:      #fcff00
-
-! blue
-*.color4:       #0052a8
-*.color12:      #22d0ff
-
-! magenta
-*.color5:       #841ed0
-*.color13:      #da7ace
-
-
-! cyan
-*.color6:       #68e7ec
-*.color14:      #00d0b6
-
-! white
-*.color7:       #ffffff
-*.color15:      #ebbaba
-
+! Generated with :
+! XRDB2Xreources.py
+!
+*.foreground:  #ffffff
+*.background:  #132738
+*.cursorColor: #f0cc09
+!
+! Black
+*.color0:      #000000
+*.color8:      #555555
+!
+! Red
+*.color1:      #ff0000
+*.color9:      #f40e17
+!
+! Green
+*.color2:      #38de21
+*.color10:     #3bd01d
+!
+! Yellow
+*.color3:      #ffe50a
+*.color11:     #edc809
+!
+! Blue
+*.color4:      #1460d2
+*.color12:     #5555ff
+!
+! Magenta
+*.color5:      #ff005d
+*.color13:     #ff55ff
+!
+! Cyan
+*.color6:      #00bbbb
+*.color14:     #6ae3fa
+!
+! White
+*.color7:      #bbbbbb
+*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #f7fcff
+!*.colorIT:
+!*.colorUL:

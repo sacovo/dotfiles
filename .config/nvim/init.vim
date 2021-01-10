@@ -1,5 +1,6 @@
-let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python'
+"let g:python_host_prog = '/usr/bin/python2.7'
+"#let g:python_host_prog = '/home/sandro/.virtualenvs/neovim/bin/python'
+let g:python3_host_prog = '/home/sandro/.virtualenvs/neovim/bin/python'
 set mouse=a
 
 set clipboard=unnamedplus
@@ -23,6 +24,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tfnico/vim-gradle'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'kassio/neoterm'
@@ -32,11 +35,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Lenovsky/nuake'
 Plug 'herrbischoff/cobalt2.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'prettier/vim-prettier'
+Plug 'justinmk/vim-sneak'
+" Plug 'fs111/pydoc.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'victorze/foo'
 " Plug 'junegunn/fzf.vim'
 Plug 'floobits/floobits-neovim'
 Plug 'davidhalter/jedi-vim'
+Plug 'sjl/gundo.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -64,7 +71,8 @@ nnoremap <space> za
 let g:SimpylFold_docstring_preview=1
 
 " neovim-config:
-call neomake#configure#automake('nrwi', 500)
+" call neomake#configure#automake('nrwi', 500)
+" let g:neomake_python_enabled_makers = ['pylint']
 " let g:neomake_open_list = 2
 
 " nerdtree
@@ -187,3 +195,22 @@ endif
 
 " Latex
 let g:tex_flavor = 'latex'
+
+" Jedi
+
+let g:jedi#completions_enabled = 0
+nnoremap <F5> :GundoToggle<CR>
+
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+let g:sneak#label = 1
+
+set undofile
+
+:let g:notes_directories = ['~/Covo.Cloud/Notes/']
+:map <F3> :r! date +"\%Y-\%m-\%dT\%H:\%M:\%S"<cr>

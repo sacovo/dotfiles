@@ -415,16 +415,17 @@ alias night="alacritty-colorscheme  -a $DARK_COLOR -V && reload_nvim"
 alias dog='pygmentize -g'
 alias ls='exa'
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
 
 PATH="/home/sandro/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/sandro/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/sandro/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/sandro/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/sandro/perl5"; export PERL_MM_OPT;
+
 alias la='exa -a'
+alias icat="kitty +kitten icat"
+alias kdiff="kitty +kitten diff"
+alias clip="kitty +kitten clipboard"
+
+alias note="vim note:$(date --iso-8601=minutes)"
+notica() { curl --data "d:$*" "https://notica.us/?cn2-Ti" ; }
